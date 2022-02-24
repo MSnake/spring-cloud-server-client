@@ -1,0 +1,18 @@
+#read properties: http://app.local:8888/conf/config_server_client/dev
+#refresh properties: POST http://localhost:8889/config-server-client/actuator/refresh
+#--spring.profiles.active=dev / stage / prod
+
+server:
+  port: 8889
+  servlet:
+    contextPath: /config-server-client
+
+spring:
+  application:
+    name: config_server_client
+  cloud:
+    config:
+      uri: http://app.domain.name:8888/conf
+      fail-fast: true
+  main:
+    allow-bean-definition-overriding: true
